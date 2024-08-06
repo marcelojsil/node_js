@@ -8,8 +8,7 @@ http.createServer(function(req, res){
 console.log("Servidor rodando");*/
 // === ====
 
-const express = require("express");
-const app = express();
+
 
 app.get("/", function(req, res){
     res.end("Seja bem vindo ao nosso app");
@@ -26,6 +25,32 @@ app.get("/sobre/:nome/:cargo", function(req, res){
 });
 
 
-app.listen(8081, function(){
-    console.log("Servidor rodando na url http://localhost:8081");
-});
+// CRIA TABELA NO BD
+const Postagem = sequelize.define('postagem',{
+    titulo: {
+        type: Sequelize.STRING
+    },
+    conteudo: {
+        type: Sequelize.TEXT
+    }
+})
+
+// tabela.sync() - CRIA A TABELA (CREATE TABLE)
+//Postagem.sync({force: true})
+
+// tabela.create() - INSERI DADOS NA TABELA (INSERT)
+Postagem.create({
+    titulo: "Teste",
+    conteudo: "Conteudo de teste"
+}) 
+
+/* verifica a conexão com o bd
+sequelize.authenticate().then(
+    function(){
+        console.log("Conectado com Sucesso")
+    }
+).cacth(
+    function(erro){
+        console.log("Falha ao conectar: "+erro)
+    }
+)*/

@@ -1,35 +1,24 @@
+const express = require('express');
+const app = express();
+const handlebars = require('express-handlebars');
 const Sequelize  = require('sequelize')
+
+// == CONFIG == 
+    // = Template Engine =
+app.engine('handlebars', handlebars({defaultLayout: 'main'}))
+app.set('view engine', 'handlebars')
+    
+    // = Conexão BD MySQL
 const sequelize = new Sequelize('teste','root','', {
     host: "localhost",
     dialect: 'mysql'
 })
 
-/* verifica a conexão com o bd
-sequelize.authenticate().then(
-    function(){
-        console.log("Conectado com Sucesso")
-    }
-).cacth(
-    function(erro){
-        console.log("Falha ao conectar: "+erro)
-    }
-)*/
-
-// CRIA TABELA NO BD
-const Postagem = sequelize.define('postagem',{
-    titulo: {
-        type: Sequelize.STRING
-    },
-    conteudo: {
-        type: Sequelize.TEXT
-    }
+    // = Rotas =
+app.get('/cad', function(req, res){
+    res.send('Rota de cadastro')
 })
 
-// tabela.sync() - CRIA A TABELA (CREATE TABLE)
-//Postagem.sync({force: true})
-
-// tabela.create() - INSERI DADOS NA TABELA (INSERT)
-Postagem.create({
-    titulo: "Teste",
-    conteudo: "Conteudo de teste"
-}) 
+app.listen(8081, function(){
+    console.log("Servidor rodando na url http://localhost:8081");
+});
