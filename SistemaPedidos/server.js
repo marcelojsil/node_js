@@ -1,12 +1,8 @@
-const app = require('./bin/index');
-const keys = require('./bin/keys');
-const connection = require('./src/middleware/connection');
+const app = require('./bin/index')
+const keys = require('./bin/keys')
+const connection = require('./src/middlewares/connection')
 
-app.listen(keys.server.port, (err) => {
+app.listen(keys.server.port, () => {
     connection.connect();
-    if(err) {
-        console.log('==> [-] Falha na aplicação');
-    } else {
-        console.log('==> [+] Aplicação funcionando.');
-    }
-});
+    console.log('Estou funcionando');
+}) 
