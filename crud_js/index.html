@@ -1,0 +1,40 @@
+a<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Dados</title>
+    <script>
+
+        async function buscarDados() {
+            try {
+                const response = await fetch('http://localhost:3000/dados');
+                const dados = await response.json();
+
+                let tabela = '<table border="1"><tr><th>ID</th><th>Nome</th><th>Email</th></tr>';
+                dados.forEach(item => {
+                    tabela += `<tr>
+                        <td>${item.id}</td></a>
+                        <td>${item.nome}</td>
+                        <td>${item.email}</td>
+                        <td><a href="./delete/:${item.id}>deletar</td>
+                    </tr>`;
+                });
+                tabela += '</table>';
+                
+                document.getElementById('resultado').innerHTML = tabela;
+            } catch (error) {
+                console.error('Erro ao buscar dados:', error);
+            }
+        }
+
+        
+
+    </script>
+</head>
+<body>
+    <h1>Lista de Usuários</h1>
+    <button onclick="buscarDados()">Carregar Dados</button>
+    <div id="resultado"></div>
+</body>
+</html>

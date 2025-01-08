@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD com Node.js e MySQL</title>
+    <script>
+        async function carregarDados() {
+            const response = await fetch('http://localhost:3000/ler');
+            const dados = await response.json();
+            let tabela = '<table border="1"><tr><th>ID</th><th>Nome</th><th>Email</th><th>Ações</th></tr>';
+            dados.forEach(item => {
+                tabela += `
+                    <tr>
+                        <td>${item.id}</td>
+                        <td>${item.nome}</td>
+                        <td>${item.email}</td>
+                        <td>
+                            <button onclick="preencherFormulario(${item.id}, '${item.nome}', '${item.email}')">Editar</button>
+                            <button onclick="deletarDados(${item.id})">Deletar</button>
+                        </td>
+                    </tr>`;
+            });
+            tabela += '</table>';
+            document.getElementById('tabela').innerHTML = tabela;
+        }
+
+        async function criarOuAtualizarDados(event) {
+            event.preventDefault();
+            const id = document.getElementById('id').value;
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+
+            const method = id ? 'PUT' : 'POST';
+            const url = id ? `http://localhost:3000/atualizar/${id}` : 'http://localhost:3000/criar';
+
+            await fetch(url, {
+                method: method,
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ nome, email })
+            });
+
+            document.getElementById('formulario').reset();
+            carregarDados();
+        }
+
+        async function deletarDados(id) {
+            if (confirm('Tem certeza que deseja deletar este registro?')) {
+                await fetch(`http://localhost:3000/deletar/${id}`, {
+                    method: 'DELETE'
+                });
+                carregarDados();
+            }
+        }
+
+        function preencherFormulario(id, nome, email) {
+            document.getElementById('id').value = id;
+            document.getElementById('nome').value = nome;
+            document.getElementById('email').value = email;
+        }
+
+        document.addEventListener('DOMContentLoaded', carregarDados);
+    </script>
+</head>
+<body>
+    <h1>CRUD com Node.js e MySQL</h1>
+    <form id="formulario" onsubmit="criarOuAtualizarDados(event)">
+        <input type="hidden" id="id">
+        <label for="nome">Nome:</label><br>
+        <input type="text" id="nome" name="nome" required><br><br>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+        <button type="submit">Salvar</button>
+    </form>
+    <div id="tabela"></div>
+</body>
+</html>

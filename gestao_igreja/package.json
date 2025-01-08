@@ -1,0 +1,21 @@
+{
+  "name": "gestao_igreja",
+  "version": "1.0.0",
+  "description": "1. Instalar pacotes necessários\r - NPM : npm install\r - EXPRESS : npm install --save express\r - SEQUELIZE : npm install --save sequelize\r - MYSQL : npm install --save mysql2 .:. npm install --save mysql\r - BODY PARSER : npm install --save body-parser\r - HANDLEBARS : npm install --save handlebars",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "mariadb": "^3.3.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.11.0",
+    "sequelize": "^6.37.3"
+  }
+}

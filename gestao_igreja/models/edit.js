@@ -1,0 +1,1 @@
+const table = require('../create_db')
