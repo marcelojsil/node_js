@@ -1,0 +1,37 @@
+<section class="formContato">
+
+    <h1>Enviar Informações</h1>
+
+    <form action="https://formsubmit.co/dev.marcelojs@gmail.com" method="POST" onsubmit="formContato(event)">
+        <div class="mb-3">
+            <label for="name" class="form-label">Nome:</label>
+            <input type="text" id="name" name="name" class="form-control" required>
+        </div>
+        
+        <div class="mb-3">
+            <label for="phone" class="form-label">Telefone:</label>
+            <input type="text" id="phone" name="phone" class="form-control" required>
+        </div>
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="/obrigado">
+        <button type="submit" class="btn btn-warning">Enviar</button>
+    </form>
+
+
+</section>
+
+<script src="/formContato" type="text/javascript"></script>
+
+
+<style>
+
+.formContato {
+    width: 80%;
+    height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #000;
+}
+
+</style>

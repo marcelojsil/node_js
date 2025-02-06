@@ -1,0 +1,85 @@
+/* ===> BOTÕES <=== */
+.button {
+    width: 100%;
+    height: 4vh;
+    border-radius: 1vh;
+    background-color: var(--cor_08);
+}
+
+/* ===> BOTÃO DE ROLAGEM <=== */
+.content {
+    text-align: center;
+    padding: 20px;
+}
+.scrollToTopBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--cor_02);
+    color: var(--cor_09);
+    border: none;
+    border-radius: 50%;
+    padding: 10px 15px;
+    font-size: 1.3em;
+    font-weight: bolder;
+    cursor: pointer;
+    display: none; /* Inicialmente escondido */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+}
+.scrollToTopBtn:hover {
+    background-color: #0056b3;
+}
+
+/* ===> BOTÃO DE WHATSAPP <=== */
+.whatsappBtn {
+    position: fixed;
+    bottom: 75px;
+    right: 0px; /* Alinha à esquerda, pode mudar para right para alinhar à direita */
+    background-color: #25D366; /* Cor oficial do WhatsApp */
+    border-radius: 15px 0 0 15px;
+    padding: 15px 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--cor_09);
+}
+.whatsappBtn img {
+    width: 40px; /* Tamanho do ícone do WhatsApp */
+    height: 40px;
+}
+/* Estilo para quando o botão de WhatsApp é clicado */
+.whatsappBtn:hover {
+    width: 150px; 
+    background-color: #128C7E; /* Cor mais escura do WhatsApp */
+}
+
+
+
+/* ===> SEPARADOR DE LINHA ONDULADO <=== */
+.linha-divisoria {
+    position: relative;
+    text-align: center;
+    margin: 2rem 0; /* Margem superior e inferior */
+    }
+    .linha-divisoria::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 10px; /* Altura da linha */
+    background: linear-gradient(90deg, transparent, var(--cor_01), transparent); /* Gradiente para criar uma onda */
+    border-radius: 5px; /* Bordas arredondadas */
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    }
+    /* Ajuste responsivo */
+    @media (max-width: 600px) {
+    .linha-divisoria::before {
+    height: 2px; /* Diminuir altura em telas pequenas */
+    }
+    }

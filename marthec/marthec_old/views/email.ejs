@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+</head>
+<body>
+    <form id="contact-form">
+        <label for="name">Nome:</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="phone">Telefone:</label>
+        <input type="tel" id="phone" name="phone" required>
+        
+        <button type="submit">Enviar</button>
+    </form>
+    
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        (function() {
+            emailjs.init('user_ZkqKTQ9vjWu9H2BND'); // Substitua YOUR_USER_ID pelo seu ID de usuário do EmailJS
+        })();
+
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const templateParams = {
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value
+            };
+
+            emailjs.send('service_j4zbc96', 'template_z4kpmsp', templateParams)
+                .then(function(response) {
+                    console.log('SUCESSO!', response.status, response.text);
+                    alert('E-mail enviado com sucesso!');
+                }, function(error) {
+                    console.log('ERRO...', error);
+                    alert('Ocorreu um erro ao enviar o e-mail. Por favor, tente novamente.');
+                });
+        });
+    </script>
+</body>
+</html>

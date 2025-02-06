@@ -1,0 +1,12 @@
+<h3>Seu negócio precisa ser visto!</h3>
+            <p>Como empreendedor você sabe o quanto é importante se destacar no mercado competitivo de hoje. Ter um site profissional não é apenas uma vitrine virtual, 
+                é uma ferramenta poderosa que oferece diversos benefícios:</p>
+                <ul>
+                    <li>Credibilidade: Um site bem estruturado transmite profissionalismo e confiança aos seus clientes.</li>
+                    <li>Disponibilidade 24/7: Seu negócio estará acessível a qualquer hora e em qualquer lugar, atendendo às necessidades dos clientes a qualquer momento.</li>
+                    <li>Alcance ampliado: Um site permite que você alcance um público maior, potencializando suas vendas e oportunidades de negócio.</li>
+                    <li>Marketing eficaz: Com um site, você pode implementar estratégias de marketing digital para atrair e fidelizar clientes.</li>
+                    <li>Informações centralizadas: Todas as informações sobre seus produtos e serviços estarão disponíveis em um só lugar, facilitando a comunicação com seus clientes.</li>
+                </ul>
+            <p>Não perca mais tempo e dê ao seu empreendimento a presença online que ele merece!</p>
+            <h3>A MArthec quer te ajudar a levar o seu negócio além!</h3>
